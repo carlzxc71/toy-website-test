@@ -89,7 +89,7 @@ jobs:
       - uses: actions/checkout@v2
       - run: |
           $container = New-PesterContainer `
-            -Path 'deploy/website.test.ps1' `
+            -Path 'deploy/website.tests.ps1' `
             -Data @{ HostName = '${{needs.deploy.outputs.appServiceAppHostName}}' }
           Invoke-Pester `
             -Container $container `
