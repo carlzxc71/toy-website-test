@@ -39,7 +39,7 @@ jobs:
           template: ./deploy/main.bicep
           parameters: environmentType=${{ env.ENVIRONMENT_TYPE }}
           deploymentMode: Validate
-  review: 
+  preview: 
     runs-on: ubuntu-latest
     needs: [lint, validate]
     steps:
@@ -60,7 +60,7 @@ jobs:
             environmentType=${{ env.ENVIRONMENT_TYPE }}
           additionalArguments: --what-if
   deploy:
-    needs: [lint, validate, validate]
+    needs: [preview]
     environment: Website
     runs-on: ubuntu-latest
     steps:
