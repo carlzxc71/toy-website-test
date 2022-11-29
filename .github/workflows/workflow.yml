@@ -60,7 +60,7 @@ jobs:
             environmentType=${{ env.ENVIRONMENT_TYPE }}
           additionalArguments: --what-if
   deploy:
-    needs: [lint, validate, preview]
+    needs: [lint, validate, validate]
     environment: Website
     runs-on: ubuntu-latest
     steps:
